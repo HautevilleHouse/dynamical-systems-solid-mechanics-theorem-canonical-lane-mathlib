@@ -1,0 +1,19 @@
+import canonicalLaneMathlib.AdmissibleClass
+import DynamicalSystemsSolidMechanicsTheoremCanonicalLaneLean.DynamicalSystem
+import DynamicalSystemsSolidMechanicsTheoremCanonicalLaneLean.SolidMechanics
+import DynamicalSystemsSolidMechanicsTheoremCanonicalLaneLean.HamiltonianDynamics
+import DynamicalSystemsSolidMechanicsTheoremCanonicalLaneLean.ElasticityPDE
+import DynamicalSystemsSolidMechanicsTheoremCanonicalLaneLean.BifurcationTheory
+
+namespace HautevilleHouse
+namespace DynamicalSystemsSolidMechanicsTheoremCanonicalLaneLean
+
+def ConstrainedDynamicalSolidMechanicsClosure (A : AdmissibleClass) : Prop :=
+  bridgeClosed A ∧ gateClosed A
+
+theorem constrained_dynamical_solid_mechanics_endgame (A : AdmissibleClass) :
+    ConstrainedDynamicalSolidMechanicsClosure A := by
+  exact And.intro (bridge_from_admissible_class A) (gate_from_admissible_class A)
+
+end DynamicalSystemsSolidMechanicsTheoremCanonicalLaneLean
+end HautevilleHouse
